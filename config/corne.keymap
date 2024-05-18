@@ -9,7 +9,7 @@
 #include <dt-bindings/zmk/bt.h>
 
 &sl {
-        release-after-ms = <3000>;
+        release-after-ms = <1500>;
 };
 
 / {
