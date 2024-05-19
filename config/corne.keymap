@@ -16,15 +16,15 @@
 	macros {
 	restart_debug:restart_debug {
 		compatible = "zmk,behavior-macro";
-	#binding-cells = <0>;
-bindings
+	        #binding-cells = <0>;
+                bindings
                 = <&macro_press &kp LCTRL>
                 , <&macro_tap &kp F5>
 		, <&macro_release &kp LCTRL>
 
                 ;
-};
-};
+                };
+        };
 };
 / {
         keymap {
