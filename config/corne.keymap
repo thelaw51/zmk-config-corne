@@ -5,70 +5,74 @@
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 
-&sl {
-        release-after-ms = <1500>;
-};
+&sl { release-after-ms = <1500>; };
 
 / {
-	macros {
-	restart_debug:restart_debug {
-		compatible = "zmk,behavior-macro";
-	#binding-cells = <0>;
-bindings
-                = <&macro_press &kp LCTRL>
-                , <&macro_tap &kp F5>
-		, <&macro_release &kp LCTRL>
-
-                ;
-};
-};
-};
-/ {
-        keymap {
-                compatible = "zmk,keymap";
-
-                default_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | ESC  |
-// | SHFT |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | CTRL |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ALT  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | BKSP|
-                        bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp ESC
-   &kp LSHFT &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LCTRL &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RALT
-                  &kp LGUI &sl 1 &kp SPACE   &kp RET &sl 2 &kp BSPC
-                        >;
-                };
-                lower_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | ALT  |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |RSTDB|     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | BKSP|
-                        bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &trans
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &restart_debug   &trans   &trans &trans    &trans &kp RALT
-                                    &kp LGUI     &trans       &kp SPACE       &kp RET  &trans   &kp BSPC                            
-                        >;
-                };
-
-                raise_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | ALT  |
-// | SHFT |     |     |     |     |  `  |   |  -  |  =  |     |  [  |  ]  |  \   |
-// | CTRL |     |     |     |     |  ~  |   |  _  |  +  |     |  {  |  }  | "|"  |
-//                    | GUI |     | SPC |   | ENT |     | BKSP|
-                        bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp RALT
-   &kp LSHFT &trans   &trans &trans   &trans   &kp GRAVE     &kp MINUS &kp EQUAL &trans  &kp LBKT &kp RBKT &kp BSLH
-   &kp LCTRL &trans   &trans &trans   &trans   &kp TILDE      &kp UNDER &kp PLUS  &trans  &kp LBRC &kp RBRC &kp PIPE
-                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp BSPC                             
-                        >;
-                };
+    macros {
+        restart_debug: restart_debug {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_tap>,
+                <&kp F5>,
+                <&macro_release>,
+                <&kp LCTRL>;
         };
+    };
+};
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | ESC  |
+            // | SHFT |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+            // | CTRL |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ALT  |
+            //                    | GUI | LWR | SPC |   | ENT | RSE  | BKSP|
+
+            bindings = <
+&kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Y    &kp U  &kp I      &kp O    &kp P     &kp ESC
+&kp LSHFT  &kp A  &kp S  &kp D     &kp F  &kp G        &kp H    &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LCTRL  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp RALT
+                         &kp LGUI  &sl 1  &kp SPACE    &kp RET  &sl 2  &kp BSPC
+            >;
+        };
+
+        lower_layer {
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | ALT  |
+            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
+            // | SHFT |     |     |     |     |     |   |RSTDB|     |     |     |     |      |
+            //                    | GUI |     | SPC |   | ENT |     | BKSP|
+
+            bindings = <
+&kp TAB     &kp N1           &kp N2             &kp N3        &kp N4        &kp N5              &kp N6          &kp N7    &kp N8    &kp N9     &kp N0  &trans
+&bt BT_CLR  &bt BT_SEL 0     &bt BT_SEL 1       &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4        &kp LEFT        &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
+&kp LSHFT   &kp C_VOLUME_UP  &kp C_VOLUME_DOWN  &kp C_PREV    &kp C_NEXT    &kp C_PLAY_PAUSE    &restart_debug  &trans    &trans    &trans     &trans  &kp RALT
+                                                &kp LGUI      &trans        &kp SPACE           &kp RET         &trans    &kp BSPC
+            >;
+        };
+
+        raise_layer {
+            // -----------------------------------------------------------------------------------------
+            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | ALT  |
+            // | SHFT |     |     |     |     |  `  |   |  -  |  =  |     |  [  |  ]  |  \   |
+            // | CTRL |     |     |     |     |  ~  |   |  _  |  +  |     |  {  |  }  | "|"  |
+            //                    | GUI |     | SPC |   | ENT |     | BKSP|
+
+            bindings = <
+&kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp RALT
+&kp LSHFT  &trans    &trans  &trans    &trans    &kp GRAVE    &kp MINUS  &kp EQUAL  &trans     &kp LBKT  &kp RBKT  &kp BSLH
+&kp LCTRL  &trans    &trans  &trans    &trans    &kp TILDE    &kp UNDER  &kp PLUS   &trans     &kp LBRC  &kp RBRC  &kp PIPE
+                             &kp LGUI  &trans    &kp SPACE    &kp RET    &trans     &kp BSPC
+            >;
+        };
+    };
 };
