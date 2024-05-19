@@ -21,7 +21,9 @@ bindings
                 = <&macro_press &kp LCTRL>
                 , <&macro_tap &kp F5>
                 ;
-
+};
+};
+};
 / {
         keymap {
                 compatible = "zmk,keymap";
