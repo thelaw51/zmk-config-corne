@@ -12,7 +12,7 @@
         release-after-ms = <1500>;
 };
 
-{
+/ {
 	macros {
 	restart_debug:restart_debug {
 		compatible = "zmk,behavior-macro";
