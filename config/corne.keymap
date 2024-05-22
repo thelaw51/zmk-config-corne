@@ -80,7 +80,7 @@
                 <&kp LEFT_CONTROL>,
                 <&macro_tap>,
                 <&kp C>,
-                <&macro_press>,
+                <&macro_release>,
                 <&kp LEFT_CONTROL>;
 
             label = "COMMENT";
@@ -100,7 +100,7 @@
                 <&kp LEFT_CONTROL>,
                 <&macro_tap>,
                 <&kp U>,
-                <&macro_press>,
+                <&macro_release>,
                 <&kp LEFT_CONTROL>;
 
             label = "UNCOMMENT";
